@@ -1,10 +1,15 @@
 package kz.almatherm.mobile.model;
 
+import android.arch.persistence.room.Entity;
+
+@Entity
 class SubService {
     private int id;
     private String image;
     private String link;
-    private String name;
+    private String title;
+    private String stock;
+    private String price;
 
     public int getId() {
         return id;
@@ -30,11 +35,27 @@ class SubService {
         this.link = link;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getStock() {
+        return stock;
+    }
+
+    public void setStock(String stock) {
+        this.stock = stock;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 }

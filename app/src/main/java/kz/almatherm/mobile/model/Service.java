@@ -1,9 +1,11 @@
 package kz.almatherm.mobile.model;
 
 import android.arch.persistence.room.Embedded;
+import android.arch.persistence.room.Entity;
 
 import java.util.ArrayList;
 
+@Entity
 class Service {
     private int id;
     private String image;

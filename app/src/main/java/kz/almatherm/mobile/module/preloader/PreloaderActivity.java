@@ -1,17 +1,22 @@
-package kz.almatherm.mobile;
+package kz.almatherm.mobile.module.preloader;
 
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.os.Build;
-import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import com.arellomobile.mvp.MvpAppCompatActivity;
+import com.arellomobile.mvp.presenter.InjectPresenter;
 
-public class PreloaderActivity extends AppCompatActivity {
+import butterknife.BindView;
+import kz.almatherm.mobile.R;
+
+public class PreloaderActivity extends MvpAppCompatActivity implements PreloaderView {
+
+    @InjectPresenter
+    PreloaderPresenter preloaderPresenter;
 
     @BindView(R.id.linear_layout)
     LinearLayout linearLayout;
@@ -20,6 +25,7 @@ public class PreloaderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preloader);
+        preloaderPresenter.loadData();
 //        ButterKnife.bind(this);
         linearLayout = findViewById(R.id.linear_layout);
         for (int i = 0; i < linearLayout.getChildCount(); i++) {
@@ -28,19 +34,27 @@ public class PreloaderActivity extends AppCompatActivity {
                 if (image.getDrawable() instanceof AnimatedVectorDrawable) {
                     AnimatedVectorDrawable drawable = (AnimatedVectorDrawable) image.getDrawable();
                     drawable.start();
+
                 }
             } else {
                 if (image.getDrawable() instanceof AnimatedVectorDrawableCompat) {
                     AnimatedVectorDrawableCompat drawable = (AnimatedVectorDrawableCompat) image.getDrawable();
                     drawable.start();
+
                 }
             }
+
         }
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+
+    }
+
+    @Override
+    public void completeLoad() {
 
     }
 }
