@@ -2,11 +2,13 @@ package kz.almatherm.mobile.model;
 
 import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
 
 import java.util.ArrayList;
 
 @Entity
-class SubCatalog {
+public class SubCategory {
+    @PrimaryKey
     private int id;
     private String image;
     private String link;

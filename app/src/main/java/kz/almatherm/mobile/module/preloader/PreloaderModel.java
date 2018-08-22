@@ -19,7 +19,7 @@ public class PreloaderModel {
     private static final String TAG = "PreloaderModel";
     private PreloaderPresenter presenter;
 
-    public PreloaderModel(PreloaderPresenter preloaderPresenter) {
+    PreloaderModel(PreloaderPresenter preloaderPresenter) {
         presenter = preloaderPresenter;
     }
 

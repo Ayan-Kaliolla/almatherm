@@ -1,9 +1,11 @@
 package kz.almatherm.mobile.model;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
 
 @Entity
-class SubService {
+public class SubService {
+    @PrimaryKey
     private int id;
     private String image;
     private String link;

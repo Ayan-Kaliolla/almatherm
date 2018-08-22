@@ -2,17 +2,19 @@ package kz.almatherm.mobile.model;
 
 import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
 
 import java.util.ArrayList;
 
 @Entity
 public class Category {
+    @PrimaryKey
     private int id;
     private String image;
     private String link;
     private String name;
     @Embedded
-    private ArrayList<SubCatalog> subCatalogs;
+    private ArrayList<SubCategory> subCategories;
 
     public int getId() {
         return id;
@@ -46,11 +48,11 @@ public class Category {
         this.name = name;
     }
 
-    public ArrayList<SubCatalog> getSubCatalogs() {
-        return subCatalogs;
+    public ArrayList<SubCategory> getSubCategories() {
+        return subCategories;
     }
 
-    public void setSubCatalogs(ArrayList<SubCatalog> subCatalogs) {
-        this.subCatalogs = subCatalogs;
+    public void setSubCategories(ArrayList<SubCategory> subCategories) {
+        this.subCategories = subCategories;
     }
 }

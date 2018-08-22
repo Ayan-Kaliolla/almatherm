@@ -6,9 +6,12 @@ import android.os.Bundle;
 import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
+import com.arellomobile.mvp.presenter.ProvidePresenter;
 
 import butterknife.BindView;
 import kz.almatherm.mobile.R;
@@ -56,5 +59,10 @@ public class PreloaderActivity extends MvpAppCompatActivity implements Preloader
     @Override
     public void completeLoad() {
 
+    }
+
+    @ProvidePresenter
+    public PreloaderPresenter preloaderPresenter() {
+        return new PreloaderPresenter(this);
     }
 }
