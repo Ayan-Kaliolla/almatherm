@@ -1,5 +1,6 @@
 package kz.almatherm.mobile.module.preloader;
 
+import android.content.Intent;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import com.arellomobile.mvp.presenter.ProvidePresenter;
 
 import butterknife.BindView;
 import kz.almatherm.mobile.R;
+import kz.almatherm.mobile.module.main.MainActivity;
 
 public class PreloaderActivity extends MvpAppCompatActivity implements PreloaderView {
 
@@ -58,7 +60,7 @@ public class PreloaderActivity extends MvpAppCompatActivity implements Preloader
 
     @Override
     public void completeLoad() {
-
+        startActivity(new Intent(this, MainActivity.class));
     }
 
     @ProvidePresenter

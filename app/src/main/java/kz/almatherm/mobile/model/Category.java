@@ -14,7 +14,7 @@ public class Category {
     private String link;
     private String name;
     @Embedded
-    private ArrayList<SubCategory> subCategories;
+    private ArrayList<SubCategory> subCatalogs;
 
     public int getId() {
         return id;
@@ -48,11 +48,11 @@ public class Category {
         this.name = name;
     }
 
-    public ArrayList<SubCategory> getSubCategories() {
-        return subCategories;
+    public ArrayList<SubCategory> getSubCatalogs() {
+        return subCatalogs;
     }
 
-    public void setSubCategories(ArrayList<SubCategory> subCategories) {
-        this.subCategories = subCategories;
+    public void setSubCatalogs(ArrayList<SubCategory> subCatalogs) {
+        this.subCatalogs = subCatalogs;
     }
 }

@@ -24,4 +24,7 @@ public interface SubServiceDao {
 
     @Query("SELECT * FROM SubService")
     List<SubService> getSubServices();
+
+    @Query("SELECT * FROM SubService WHERE parent_id = :parentId")
+    List<SubService> getSubServiceByParentId(int parentId);
 }

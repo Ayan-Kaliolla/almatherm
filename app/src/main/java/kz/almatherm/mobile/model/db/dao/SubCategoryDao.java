@@ -22,4 +22,7 @@ public interface SubCategoryDao {
 
     @Query("SELECT * FROM subcategory")
     List<SubCategory> getSubCategory();
+
+    @Query("SELECT * FROM subcategory WHERE parent_id = :parentId")
+    List<SubCategory> getSubCategoryByParentId(int parentId);
 }

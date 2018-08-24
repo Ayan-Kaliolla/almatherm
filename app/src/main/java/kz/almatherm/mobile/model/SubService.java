@@ -1,7 +1,10 @@
 package kz.almatherm.mobile.model;
 
+import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+
+import com.google.gson.annotations.SerializedName;
 
 @Entity
 public class SubService {
@@ -12,6 +15,8 @@ public class SubService {
     private String title;
     private String stock;
     private String price;
+    @ColumnInfo(name = "parent_id")
+    private int parentId;
 
     public int getId() {
         return id;
@@ -59,5 +64,13 @@ public class SubService {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public void setParentId(int parentId) {
+        this.parentId = parentId;
+    }
+
+    public int getParentId() {
+        return parentId;
     }
 }

@@ -8,6 +8,7 @@ import android.arch.persistence.room.Query;
 import java.util.List;
 
 import kz.almatherm.mobile.model.Service;
+import kz.almatherm.mobile.model.SubCategory;
 
 @Dao
 public interface ServiceDao {
@@ -22,5 +23,8 @@ public interface ServiceDao {
 
     @Query("SELECT * FROM service")
     List<Service> getService();
+
+    @Query("SELECT * FROM service WHERE parent_id = :parentId")
+    List<Service> getServiceByParentId(int parentId);
 
 }

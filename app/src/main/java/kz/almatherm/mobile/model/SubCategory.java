@@ -1,8 +1,11 @@
 package kz.almatherm.mobile.model;
 
+import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+
+import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 
@@ -13,6 +16,8 @@ public class SubCategory {
     private String image;
     private String link;
     private String name;
+    @ColumnInfo(name = "parent_id")
+    private int parentId;
     @Embedded
     private ArrayList<Service> services;
 
@@ -46,6 +51,14 @@ public class SubCategory {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(int parentId) {
+        this.parentId = parentId;
     }
 
     public ArrayList<Service> getServices() {

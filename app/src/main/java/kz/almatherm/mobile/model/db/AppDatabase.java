@@ -16,7 +16,8 @@ import kz.almatherm.mobile.model.db.dao.SubServiceDao;
         SubCategory.class,
         Service.class,
         SubService.class},
-        version = 1)
+        version = 3
+)
 public abstract class AppDatabase extends RoomDatabase {
 
     public abstract CategoryDao getCategoryDao();
