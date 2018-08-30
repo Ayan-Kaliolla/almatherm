@@ -1,4 +1,6 @@
 package kz.almatherm.mobile.module.cart;
 
-public class CartFragment {
+import com.arellomobile.mvp.MvpAppCompatFragment;
+
+public class CartFragment extends MvpAppCompatFragment {
 }

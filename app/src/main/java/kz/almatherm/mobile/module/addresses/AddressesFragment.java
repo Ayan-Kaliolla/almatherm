@@ -1,4 +1,6 @@
 package kz.almatherm.mobile.module.addresses;
 
-public class AddressesFragment {
+import com.arellomobile.mvp.MvpAppCompatFragment;
+
+public class AddressesFragment extends MvpAppCompatFragment {
 }

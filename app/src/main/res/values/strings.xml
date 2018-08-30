@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Almatherm</string>
+    <string name="home_title">Каталог</string>
+    <string name="history_title">Каталог</string>
+    <string name="certificates_title">Сертификаты</string>
+    <string name="address_title">Где купить</string>
+    <string name="cart_title">Корзина</string>
 </resources>

@@ -6,6 +6,6 @@ import java.util.List;
 
 import kz.almatherm.mobile.model.Category;
 
-interface CategoryView extends MvpView {
+public interface CategoryView extends MvpView {
     void onCategoryLoaded(List<Category> categories);
 }

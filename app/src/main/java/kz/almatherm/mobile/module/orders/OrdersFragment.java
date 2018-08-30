@@ -1,4 +1,6 @@
 package kz.almatherm.mobile.module.orders;
 
-class OrdersFragment {
+import com.arellomobile.mvp.MvpAppCompatFragment;
+
+public class OrdersFragment extends MvpAppCompatFragment {
 }

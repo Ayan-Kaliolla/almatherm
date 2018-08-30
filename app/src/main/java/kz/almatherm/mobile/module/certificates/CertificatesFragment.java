@@ -1,4 +1,6 @@
 package kz.almatherm.mobile.module.certificates;
 
-public class CertificatesFragment {
+import com.arellomobile.mvp.MvpAppCompatFragment;
+
+public class CertificatesFragment extends MvpAppCompatFragment {
 }
