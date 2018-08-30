@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "717612121949",
+    "firebase_url": "https://almatherm-6d38a.firebaseio.com",
+    "project_id": "almatherm-6d38a",
+    "storage_bucket": "almatherm-6d38a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:717612121949:android:709e19d88a41e3b2",
+        "android_client_info": {
+          "package_name": "kz.almatherm.mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "717612121949-t3pgi1omf9nhc7vs03v5rkn08lp3clt7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kz.almatherm.mobile",
+            "certificate_hash": "444e4faadf9c3b200aa40027a675f5b10d7f8592"
+          }
+        },
+        {
+          "client_id": "717612121949-ajk1vnafaefu8u508i5qkeb6t29cfnnl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGKfGEWvbTfIu08FiddZik2-ELbUbhYLQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "717612121949-ajk1vnafaefu8u508i5qkeb6t29cfnnl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
