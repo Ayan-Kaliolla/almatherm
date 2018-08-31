@@ -114,20 +114,19 @@ public class MainActivity extends MvpAppCompatActivity implements AHBottomNaviga
                 currentFragment = new CategoryFragment();
                 break;
             case 1:
-                currentFragment = new OrdersFragment();
-                break;
-            case 2:
+//                currentFragment = new OrdersFragment();
                 currentFragment = new CertificatesFragment();
                 break;
-            case 3:
+            case 2:
                 currentFragment = new AddressesFragment();
                 break;
-            case 4:
+            case 3:
                 currentFragment = new CartFragment();
                 if (notificationVisible) {
                     removeCardTotalElements();
                 }
                 break;
+            case 4:
         }
     }
 }

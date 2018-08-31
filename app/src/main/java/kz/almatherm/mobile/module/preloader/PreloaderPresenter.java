@@ -12,6 +12,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import kz.almatherm.mobile.AlmathermMobile;
 import kz.almatherm.mobile.model.Category;
+import kz.almatherm.mobile.model.MapItem;
 import kz.almatherm.mobile.model.Service;
 import kz.almatherm.mobile.model.SubCategory;
 import kz.almatherm.mobile.model.SubService;
@@ -21,6 +22,8 @@ import kz.almatherm.mobile.model.db.AppDatabase;
 public class PreloaderPresenter extends MvpPresenter<PreloaderView> {
     private PreloaderModel model;
     private Context context;
+    private boolean categoryLoaded = false;
+    private boolean mapItemsLoaded = false;
 
     public PreloaderPresenter(Context context) {
         this.model = new PreloaderModel(this);
@@ -31,7 +34,25 @@ public class PreloaderPresenter extends MvpPresenter<PreloaderView> {
         model.loadData();
     }
 
-    public void onDataLoaded(ArrayList<Category> categories) {
+    public void onMapItemsLoaded(ArrayList<MapItem> mapItems) {
+        Observable.just(mapItems)
+                .observeOn(Schedulers.io())
+                .doOnNext(e -> {
+                    AppDatabase database = ((AlmathermMobile) context.getApplicationContext()).getDatabase();
+                    database.getMapItemDao().insert(e);
+                })
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnComplete(() -> {
+                            mapItemsLoaded = true;
+                            if (categoryLoaded) {
+                                getViewState().completeLoad();
+                            }
+                        }
+                )
+                .subscribe();
+    }
+
+    public void onCategoryLoaded(ArrayList<Category> categories) {
         Observable.just(categories)
                 .observeOn(Schedulers.io())
                 .doOnNext(e -> {
@@ -58,10 +79,13 @@ public class PreloaderPresenter extends MvpPresenter<PreloaderView> {
                     }
                 })
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnComplete(
-                        getViewState()::completeLoad
+                .doOnComplete(() -> {
+                            categoryLoaded = true;
+                            if (mapItemsLoaded) {
+                                getViewState().completeLoad();
+                            }
+                        }
                 )
                 .subscribe();
-
     }
 }

@@ -12,6 +12,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 import kz.almatherm.mobile.model.Category;
+import kz.almatherm.mobile.model.MapItem;
 import kz.almatherm.mobile.model.Service;
 import kz.almatherm.mobile.model.SubCategory;
 import kz.almatherm.mobile.model.SubService;
@@ -28,6 +29,7 @@ public class PreloaderModel {
 
     public void loadData() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
+        database.setPersistenceEnabled(true);
         DatabaseReference reference = database.getReference();
         reference.child("categories").addValueEventListener(new ValueEventListener() {
             @Override
@@ -56,7 +58,24 @@ public class PreloaderModel {
                             }
                     }
                 }
-                presenter.onDataLoaded(categories);
+                presenter.onCategoryLoaded(categories);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.d(TAG, databaseError.getDetails());
+            }
+        });
+
+        reference.child("map_items").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                ArrayList<MapItem> mapItems = new ArrayList<>();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    MapItem mapItem= snapshot.getValue(MapItem.class);
+                    mapItems.add(mapItem);
+                }
+                presenter.onMapItemsLoaded(mapItems);
             }
 
             @Override

@@ -61,6 +61,7 @@ public class PreloaderActivity extends MvpAppCompatActivity implements Preloader
     @Override
     public void completeLoad() {
         startActivity(new Intent(this, MainActivity.class));
+        finish();
     }
 
     @ProvidePresenter
