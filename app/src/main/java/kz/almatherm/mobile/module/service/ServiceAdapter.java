@@ -33,7 +33,7 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(context).inflate(R.layout.category_item, viewGroup, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_category, viewGroup, false);
         return new ViewHolder(view);
     }
 
